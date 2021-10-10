@@ -1,0 +1,7 @@
+# Bindings
+cython
+pybind11
+
+# Packages build
+setuptools
+scikit-build
