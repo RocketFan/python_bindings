@@ -23,7 +23,7 @@ setup(
     version="0.0.1",
     packages=find_packages(where='python'),
     package_dir={"": "python"},
-    cmake_install_dir="python/cython_example",
+    # cmake_install_dir="python/cython_example",
     include_package_data = True,
     # extras_require={"test": ["pytest"]},
 )

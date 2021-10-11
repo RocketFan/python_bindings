@@ -14,5 +14,6 @@ if(SKBUILD)
 endif()
 
 pybind11_add_module(simple_functions MODULE simple_functions_py.cpp)
+add_library(${PROJECT_NAME}::simple_functions ALIAS simple_functions)
 target_link_libraries(simple_functions PRIVATE pybind11_example_lib)
-install(TARGETS simple_functions DESTINATION .)
+install(TARGETS simple_functions DESTINATION python/pybind11_example)

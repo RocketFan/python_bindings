@@ -5,14 +5,11 @@ if(SKBUILD)
     find_package(PythonExtensions REQUIRED)
     find_package(Cython REQUIRED)
 
-
-    add_cython_target(${PROJECT_NAME}_cython
-        simple_functions.pyx
-        CXX
-    )
-
-    add_library(${PROJECT_NAME} ${${PROJECT_NAME}_cython})
-    target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_lib)
-    python_extension_module(${PROJECT_NAME})
-    install(TARGETS ${PROJECT_NAME} DESTINATION .)
+    add_cython_target(simple_functions simple_functions.pyx CXX)
+    add_library(simple_functions MODULE ${simple_functions})
+    add_library(${PROJECT_NAME}::simple_functions ALIAS simple_functions)
+    target_link_libraries(simple_functions ${PROJECT_NAME}_lib)
+    python_extension_module(simple_functions)
+    # set_target_properties(simple_functions PROPERTIES OUTPUT_NAME "simple_functions")
+    install(TARGETS simple_functions DESTINATION python/cython_example)
 endif()
