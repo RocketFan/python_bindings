@@ -13,7 +13,9 @@ if(SKBUILD)
   list(APPEND CMAKE_PREFIX_PATH "${_tmp_dir}")
 endif()
 
-pybind11_add_module(simple_functions MODULE simple_functions_py.cpp)
-add_library(${PROJECT_NAME}::simple_functions ALIAS simple_functions)
-target_link_libraries(simple_functions PRIVATE pybind11_example_lib)
-install(TARGETS simple_functions DESTINATION python/pybind11_example)
+# Add C++ bind using pybind11 to Python
+# The name of the library should be same as module name (.pyx file name)
+pybind11_add_module(simple_functions MODULE simple_functions_py.cpp) # Add Python module and also C++ module library
+add_library(${PROJECT_NAME}::simple_functions ALIAS simple_functions) # Add alias to library
+target_link_libraries(simple_functions PRIVATE pybind11_example_lib) # Add some dependecie libraries
+install(TARGETS simple_functions DESTINATION python/pybind11_example) # Destination should be path to python package

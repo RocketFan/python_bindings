@@ -12,5 +12,6 @@ add_subdirectory(lib)
 add_subdirectory(examples)
 add_subdirectory(python)
 
+# For test reasons
 add_executable(main main.cpp)
 target_link_libraries(main PUBLIC pybind11_example_lib)
