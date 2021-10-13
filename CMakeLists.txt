@@ -4,6 +4,9 @@ project(python_bindings LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall --std=c++${CMAKE_CXX_STANDARD} -O3 -fPIC" )
+set( CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -Wall -O3 -fPIC" )
+
 # OpenCV
 set(CUDA_TOOLKIT_ROOT_DIR /usr/local/cuda)
 find_package(OpenCV REQUIRED)
