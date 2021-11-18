@@ -24,3 +24,8 @@ pybind11_add_module(player MODULE player.cpp)
 add_library(${PROJECT_NAME}::player ALIAS player)
 target_link_libraries(player PRIVATE pybind11_example_lib)
 install(TARGETS player DESTINATION python/pybind11_example)
+
+pybind11_add_module(observer MODULE observer.cpp)
+add_library(${PROJECT_NAME}::observer ALIAS observer)
+target_link_libraries(observer PRIVATE pybind11_example_lib)
+install(TARGETS observer DESTINATION python/pybind11_example)

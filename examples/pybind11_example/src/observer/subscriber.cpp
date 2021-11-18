@@ -6,6 +6,6 @@
 
 using namespace pybind11_example;
 
-void Subscriber::update(IPublisher &pub) {
-    std::cout << pub.message << std::endl;
+void Subscriber::update(std::shared_ptr<IPublisher> pub) {
+    std::cout << pub->message << std::endl;
 }
