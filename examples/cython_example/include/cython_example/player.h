@@ -12,7 +12,9 @@ class Player {
     int attack;
     std::vector<std::shared_ptr<Player>> animals;
 
-    Player(std::string name, int health, int attack);
+    Player();
+
+    Player(std::string &name, int health, int attack);
 
     void hit(Player player);
 

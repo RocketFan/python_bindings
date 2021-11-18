@@ -2,7 +2,9 @@
 
 using namespace cython_example;
 
-Player::Player(std::string name, int health, int attack)
+Player::Player() {}
+
+Player::Player(std::string &name, int health, int attack)
     : name(name), health(health), attack(attack) {}
 
 void Player::hit(Player player) {

@@ -14,4 +14,11 @@ if(SKBUILD)
     target_link_libraries(simple_functions ${PROJECT_NAME}_lib) # Add some dependecie libraries
     python_extension_module(simple_functions) # Add Library as Python module
     install(TARGETS simple_functions DESTINATION python/cython_example) # Destination should be path to python package
+
+    add_cython_target(player player.pyx CXX)
+    add_library(player MODULE ${player})
+    add_library(${PROJECT_NAME}::player ALIAS player)
+    target_link_libraries(player ${PROJECT_NAME}_lib)
+    python_extension_module(player)
+    install(TARGETS player DESTINATION python/cython_example)
 endif()
