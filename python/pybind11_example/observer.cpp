@@ -47,7 +47,6 @@ PYBIND11_MODULE(observer, m) {
     py::class_<Publisher, IPublisher, std::shared_ptr<Publisher>>(m, "Publisher")
         .def(py::init<>())
         .def("attach", py::overload_cast<std::shared_ptr<ISubscriber>>(&Publisher::attach))
-        .def("attach", py::overload_cast<std::shared_ptr<ISubscriber>>(&Publisher::attach))
         .def("notify", py::overload_cast<std::string>(&Publisher::notify));
 
     py::class_<ISubscriber, ISubscriberTrampoline, std::shared_ptr<ISubscriber>>(m, "ISubscriber")
